@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DragRacing_Web.Models.Cars>
+
+@{
+    ViewData["Title"] = "Cars";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Make_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tire_Compound)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Engines)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tire_Compound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Engines.Engine_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Car_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Car_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Car_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

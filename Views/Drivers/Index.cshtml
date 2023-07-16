@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DragRacing_Web.Models.Drivers>
+
+@{
+    ViewData["Title"] = "Drivers";
+}
+
+<h1>Drivers</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hometown)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Racing_Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hometown)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Racing_Team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cars.Car_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Driver_ID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Driver_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

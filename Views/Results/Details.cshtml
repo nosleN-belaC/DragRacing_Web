@@ -1,0 +1,48 @@
+﻿@model DragRacing_Web.Models.Results
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Results</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Drivers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Drivers.Driver_ID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Weather)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weather)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tracks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tracks.Track_ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Result_ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
